@@ -23,4 +23,4 @@ heroicons: https://github.com/tailwindlabs/heroicons
 
 ### Video Tutorial
 
-You can see my youtube video for this project in [here](https://youtu.be/7huux0RAX30)# notif-emailjs
+You can see my youtube video for this project in [here](https://youtube.com)# notif-emailjs
