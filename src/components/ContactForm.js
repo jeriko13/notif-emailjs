@@ -48,7 +48,7 @@ const ContactForm = () => {
     emailjs.send('service_89ewt5b', 'template_4t2s9hw', values, '2eIhO3RxgReqrWoP1')
       .then(response => {
         console.log('SUCCESS!', response);
-        sendDataToAPI({
+        setValues({
          
           nama: '',
           email: '',
@@ -69,8 +69,8 @@ const ContactForm = () => {
   }, [status]);
 
   const handleChange = (e) => {
-    sendDataToAPI(sendDataToAPI => ({
-      ...sendDataToAPI,
+    setValues(setValues => ({
+      ...setValues,
       [e.target.name]: e.target.value
     }))
   }
@@ -79,10 +79,10 @@ const ContactForm = () => {
       {status && renderAlert()}
       <form onSubmit={handleSubmit}>
         <h3 className="text-gray-700 mb-7 text-xl font-semibold">Send us message</h3>
-        <InputField value={sendDataToAPI.nama} handleChange={handleChange} label="Nama Anda" name="nama" type="text" placeholder="John Doe" />
-        <InputField value={sendDataToAPI.email} handleChange={handleChange} label="E-Mail" name="email" type="email" placeholder="jphn@example.com" />
+        <InputField value={setValues.nama} handleChange={handleChange} label="Nama Anda" name="nama" type="text" placeholder="John Doe" />
+        <InputField value={setValues.email} handleChange={handleChange} label="E-Mail" name="email" type="email" placeholder="jphn@example.com" />
         <SelectField handleChange={handleChange} name="opsi" label="Opsi" />
-        <TextareaField value={sendDataToAPI.pesan} handleChange={handleChange} label="Isi Pesan Kamu disini" name="pesan" />
+        <TextareaField value={setValues.pesan} handleChange={handleChange} label="Isi Pesan Kamu disini" name="pesan" />
         <button type="submit"
           className="mt-4 bg-gray-900 text-gray-200 rounded hover:bg-gray-700 px-4 py-2 focus:outline-none"
         >Send <ChevronRightIcon className="w-6 ml-2 float-right" />
